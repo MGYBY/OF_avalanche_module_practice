@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  avalanche                             |
+|   \\  /    A nd           | https://develop.openfoam.com/Community/avalanche|
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      faMeshDefinition;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+polyMeshPatches  1( bed );
+
+boundary
+{
+    inlet
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  inlet;
+    }
+
+    outlet
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  outlet;
+    }
+
+    side
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  side;
+    }
+
+    frontBlockWall
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  frontBlockWall;
+    }
+
+    rearBlockWall
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  rearBlockWall;
+    }
+
+    sideBlockWall
+    {
+        type                patch;
+        ownerPolyPatch      bed;
+        neighbourPolyPatch  sideBlockWall;
+    }
+}
+
+// ************************************************************************** //
