@@ -1,0 +1,22 @@
+#!/bin/sh
+cd "${0%/*}" || exit                            # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions    # Tutorial run functions
+#------------------------------------------------------------------------------
+
+# runApplication slopeMesh
+
+blockMesh
+
+makeFaMesh
+
+# Restore initial fields
+# restore0Dir
+cp -r 0.orig 0
+
+# runApplication releaseAreaMapping
+
+# funkySetFields -time 0
+
+faSavageHutterFoam
+
+#------------------------------------------------------------------------------
